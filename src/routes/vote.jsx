@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 export default function Vote({prompt, promptInfo}) {
     const [approve, setApprove] = useState(undefined);
-    const [confirm, setConfirm] = useState(false);
 
     return (
       <section className="w-2/5">
