@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import castVote from '../middlewares/castVote.js';
 export default function Vote({prompt, promptInfo}) {
     const [approve, setApprove] = useState(undefined);
 
@@ -23,7 +24,9 @@ export default function Vote({prompt, promptInfo}) {
             <button
               class="block w-1/2 px-8 py-4 mx-auto rounded-md bg-purple-600 hover:bg-purple-800 disabled:mt-16 disabled:bg-stone-600"
               disabled={approve !== true & approve !== false}
-              onClick={() => window.location = '/'}
+              onClick={() => {
+                  castVote(approve, prompt, 0, () => {window.location = '/'});
+              }}
               >
                 Cast Vote
             </button>
